@@ -237,10 +237,10 @@ async function onMessageReceived(payload) {
 
     // join msg
     if(StoC_msg.type === 'JOIN') {
-        /*if(StoC_msg.sender === username){
+        if(StoC_msg.sender === username){
             sessionId = StoC_msg.sessionId;
-            stompClient.subscribe('/user/' + sessionId + '/msg', onMessageReceived);
-        }*/
+            //stompClient.subscribe('/user/' + sessionId + '/msg', onMessageReceived);
+        }
         messageElement.classList.add('event-message');
         StoC_msg.content = StoC_msg.sender + ' joined!';
     }
