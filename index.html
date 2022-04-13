@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Chat Tupi | Spring Boot + WebSocket</title>
+    <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body background="maxresdefault.jpg"
+      style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+<noscript>
+    <h2>Oops! It looks like this browser doesn't support JavaScript</h2>
+</noscript>
+
+<div id="username-page">
+    <div class="username-page-container">
+        <h1 class="title">Type your name</h1>
+        <form id="usernameForm" name="usernameForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Name"
+                       autocomplete="off" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="accent username-submit">Start talking</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <form id="opForm" name="opForm">
+            <div id="btns">
+                <label for="op">My Op:</label>
+                <select name="op" id="op">
+                    <option value="INSERT">INSERT</option>
+                    <option value="DELETE">DELETE</option>
+                    <option value="EDIT">EDIT</option>
+                    <option value="FOCUS">FOCUS</option>
+                </select>
+
+                <label for="parent">parent</label>
+                <input type="text" id="parent" value="outerBlock"/>
+
+                <label for="index">index</label>
+                <input type="number" id="index" value = "0"/>
+
+                <label for="content">content</label>
+                <input type="text" id="content" value="I am block I"/>
+
+
+                <!-- <input type="button" onclick = "reset()" value = "reset"/> -->
+                <button type="submit" class="primary">run</button>
+
+            </div>
+        </form>
+        <div id = "client">
+            <div id = 'outerBlock'>
+                <div id = '1'>&emsp;I am block 1
+                    <div id = '11'>&emsp;&emsp;I am block 11
+                        <div id = '111'>&emsp;&emsp;&emsp;I am block 111</div>
+                        <div id = '112'>&emsp;&emsp;&emsp;I am block 112</div>
+                    </div>
+                    <div id = '12'>&emsp;&emsp;I am block 12
+                        <div id = '121'>&emsp;&emsp;&emsp;I am block 121</div>
+                        <div id = '122'>&emsp;&emsp;&emsp;I am block 122</div>
+                    </div>
+                    <div id = '13'>&emsp;&emsp;I am block 13
+                        <div id = '131'>&emsp;&emsp;&emsp;I am block 131</div>
+                        <div id = '132'>&emsp;&emsp;&emsp;I am block 132</div>
+                    </div>
+                </div>
+                <div id = '2'>&emsp;I am block 2
+                    <div id = '21'>&emsp;&emsp;I am block 21
+                        <div id = '211'>&emsp;&emsp;&emsp;I am block 211</div>
+                        <div id = '212'>&emsp;&emsp;&emsp;I am block 212</div>
+                    </div>
+                    <div id = '22'>&emsp;&emsp;I am block 22
+                        <div id = '221'>&emsp;&emsp;&emsp;I am block 221</div>
+                        <div id = '222'>&emsp;&emsp;&emsp;I am block 222</div>
+                    </div>
+                    <div id = '23'>&emsp;&emsp;I am block 23
+                        <div id = '231'>&emsp;&emsp;&emsp;I am block 231</div>
+                        <div id = '232'>&emsp;&emsp;&emsp;I am block 232</div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="connecting">Connecting to chat...</div>
+        <ul id="messageArea">
+
+        </ul>
+        <form id="messageForm" name="messageForm" nameForm="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Type a message..."
+                           autocomplete="off" class="form-control" />
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
